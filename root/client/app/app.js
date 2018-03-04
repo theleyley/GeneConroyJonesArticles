@@ -1,8 +1,8 @@
 'use strict';
 
-var myApp = angular.module('app', ['ui.router']);
+var ptApp = angular.module('ptApp', ['ui.router']);
 
-myApp.config(function($stateProvider) {
+ptApp.config(function($stateProvider) {
 
     var landingState = {
         name: 'landing',
@@ -23,5 +23,5 @@ myApp.config(function($stateProvider) {
 });
 
 module.exports = {
-    myApp: myApp
+    ptApp: ptApp
 };
