@@ -1,7 +1,7 @@
 'use strict';
 
 ptApp.component('footer', {
-    transclude: true, // Import from the app level
+    transclude: true,
     templateUrl:'footer/footer.html',
     controller: FooterController,
     controllerAs: 'vm',

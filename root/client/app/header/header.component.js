@@ -6,7 +6,6 @@ ptApp.component('header', {
     controller: HeaderController,
     controllerAs: 'vm',
     bindings: {
-        linkName: "@"
     }
 });
 
