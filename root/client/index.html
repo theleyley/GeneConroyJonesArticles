@@ -1,18 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Webpack Plunge</title>
+    <title>Practice Tab</title>
+
+    <!-- Vendor Files -->
+    <!-- app:js -->
+    <!-- endinject -->
 
     <!-- App Files -->
-    <script src="bundle.js"></script>
-
+    <script src="/app/app.js"></script>
+    
+    <!-- Styles -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" type="text/css" rel="stylesheet" />
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" href="/css/ie-fix.css" />
+    <![endif]-->
+    
+    <style>
+        .line-break {
+            white-space: pre-line;
+        }
+    </style>
+    
 </head>
 <body>
-<h1> Webpack App</h1>
-<div ng-app="app">
-    <a ui-sref="landing" ui-sref-active="active">Landing</a>
-    <a ui-sref="about" ui-sref-active="active">About</a>
-    <ui-view></ui-view>
-</div>
+    <div ng-app="app">
+        <div ng-controller="LoveRules as msg" class="container">
+            <h2>{{msg.greeting}}</h2>
+            <p class="line-break">{{msg.note}}</p>
+            <p class="line-break">{{msg.signoff}}</p>
+        </div> 
+    </div>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <srcipt src="/app/main.js"></srcipt>
+    
 </body>
 </html>
+

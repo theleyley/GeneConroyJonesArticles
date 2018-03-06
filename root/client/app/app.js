@@ -1,27 +1,10 @@
 'use strict';
 
-var myApp = angular.module('app', ['ui.router']);
+var ptApp = angular.module('app', []);
 
-myApp.config(function($stateProvider) {
-
-    var landingState = {
-        name: 'landing',
-        url: '/',
-        templateUrl: 'landing.html',
-        controller: 'LandingCtrl as ctrl'
-    };
-
-    var aboutState = {
-        name: 'about',
-        url: '/about',
-        templateUrl: 'home/about.html',
-        controller: 'AboutCtrl as ctrl'
-    };
-
-    $stateProvider.state(landingState);
-    $stateProvider.state(aboutState);
+ptApp.controller('LoveRules', function(){
+    var app = this;
+    app.greeting = 'Hi my dearest and most beautiful Jarred love love!';
+    app.note = 'I love you more than you know.\n\nIt\'s always going to be okay.\n\nI hope this helps out.\n\nINANU!';
+    app.signoff = 'Love,\nboo';
 });
-
-module.exports = {
-    myApp: myApp
-};
