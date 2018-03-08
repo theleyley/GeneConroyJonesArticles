@@ -6,7 +6,7 @@ var server = require('gulp-server-livereload');
 
 var vendor_files = ['./node_modules/angular/angular.js'];
 
-gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyVendor));
+gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor));
 
 gulp.task('index', gulp.series(clean, copyIndex));
 
@@ -30,6 +30,9 @@ function copyIndex(done) {
 function copyAppJs(done) {
     return gulp.src('./client/**/*.js').pipe(gulp.dest('./dist', {overwrite: true}));
 }
+function copyAppTemplates(done) {
+    return gulp.src('./client/app/templates/*.html').pipe(gulp.dest('./dist/templates'));
+}
 
 function copyVendor(done) {
     return gulp.src(vendor_files, {base: './node_modules'}).pipe(gulp.dest('./dist/vendor', {overwrite: true}));
@@ -42,17 +45,15 @@ function sassDatAss(done) {
 }
 
 function watchAppJs(done) {
-    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyVendor));
+    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor));
 }
 
 function webServer(done) {
-    return gulp.src('dist')
+    return gulp.src('./dist')
         .pipe(server({
             host: 'localhost',
             port: '8000',
-            defaultFile: 'index.html',
             livereload: true,
-            directoryListing: false,
             open: true
         }));
 }

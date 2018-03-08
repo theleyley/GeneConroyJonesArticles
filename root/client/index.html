@@ -26,13 +26,15 @@
 </head>
 <body>
     <div ng-app="app">
+        <header></header>
         <div ng-controller="LoveRules as msg" class="container">
             <h2>{{msg.greeting}}</h2>
             <p class="line-break">{{msg.note}}</p>
             <p class="line-break">{{msg.signoff}}</p>
-        </div> 
+        </div>
+        <footer></footer>
     </div>
-    
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <srcipt src="/app/main.js"></srcipt>
     
