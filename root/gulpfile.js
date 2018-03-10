@@ -6,7 +6,9 @@ var server = require('gulp-server-livereload');
 
 var vendor_files = ['./node_modules/angular/angular.js', './node_modules/angular-route/angular-route.js'];
 
-gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor));
+var lib_files =['./assets/lib/**/*.*', './assets/lib/**/**/.*', './assets/lib/**/**/**.*'];
+
+gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles));
 
 gulp.task('index', gulp.series(clean, copyIndex));
 
@@ -38,6 +40,10 @@ function copyVendor(done) {
     return gulp.src(vendor_files, {base: './node_modules'}).pipe(gulp.dest('./dist/vendor', {overwrite: true}));
 }
 
+function copyLibFiles(done) {
+    return gulp.src(lib_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
+}
+
 function sassDatAss(done) {
     return gulp.src('./assets/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -45,7 +51,7 @@ function sassDatAss(done) {
 }
 
 function watchAppJs(done) {
-    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor));
+    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles));
 }
 
 function webServer(done) {
