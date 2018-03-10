@@ -4,7 +4,7 @@ var inject = require('gulp-inject');
 var sass = require('gulp-sass');
 var server = require('gulp-server-livereload');
 
-var vendor_files = ['./node_modules/angular/angular.js'];
+var vendor_files = ['./node_modules/angular/angular.js', './node_modules/angular-route/angular-route.js'];
 
 gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor));
 
@@ -52,6 +52,7 @@ function webServer(done) {
     return gulp.src('./dist')
         .pipe(server({
             host: 'localhost',
+            defaultFile: 'index.html',
             port: '8000',
             livereload: true,
             open: true

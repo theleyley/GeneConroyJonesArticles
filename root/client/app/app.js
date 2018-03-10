@@ -1,12 +1,9 @@
 'use strict';
 
-var ptApp = angular.module('app', []);
+var ptApp = angular.module('app', ['ngRoute']);
 
-ptApp.controller('LoveRules', function(){
-    var app = this;
-    app.greeting = 'Hi my dearest and most beautiful Jarred love love!';
-    app.note = 'I love you more than you know.\n\nIt\'s always going to be okay.\n\nI hope this helps out.\n\nINANU!';
-    app.signoff = 'Love,\nboo';
+ptApp.controller('homePage', function(){
+
 });
 
 
@@ -45,3 +42,10 @@ function FooterController($log) {
 
     $log.info(vm);
 }
+// Configure paths to point to appropriate html templates and specify ui-sref='/someRandomName'
+ptApp.config(function($routeProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl : "index.html"
+        });
+});
