@@ -230,7 +230,9 @@
     <div class="container">
         <div class="call-to-action">
             <div class="cta-text">Are you excited to start your project?</div>
-            <a class="btn btn-default-o" href="#">Get Started</a>
+            <a class="btn btn-default-o" data-toggle="modal" data-target="#freeCapture" data-backdrop="static" data-keyboard="false">
+                Get Started
+            </a>
         </div>
     </div><!-- container -->
 </div>
@@ -408,10 +410,23 @@
 
                 </form>
             </div>
-            <div class="modal-footer">data-dismiss="modal
+            <div class="modal-footer">
                 <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
                 <a type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.submitMe()">Save changes</a>
             </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript-lazy">
+$(document).ready(function () {
+    //Client Carousel
+    $("#client-carousel").owlCarousel({
+        items: 6,
+        itemsDesktopSmall: 4,
+        itemsTablet: 4,
+        itemsMobile: 2,
+        autoPlay: true
+    });
+});
+</script>
