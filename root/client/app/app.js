@@ -37,11 +37,12 @@ function FooterController() {
 
 }
 // Configure paths to point to appropriate html templates and specify ui-sref='/someRandomName'
-ptApp.config(function($routeProvider) {
+ptApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
         .when('/', {
             templateUrl: '../templates/homepage.html',
             controller: 'homePage',
             controllerAs: 'vm'
         });
+    $locationProvider.html5Mode(true);
 });

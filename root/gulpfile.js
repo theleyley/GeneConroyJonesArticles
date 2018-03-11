@@ -64,7 +64,7 @@ function webServer(done) {
             host: 'localhost',
             defaultFile: 'index.html',
             port: '8000',
-            livereload: true,
+            livereload: false,
             open: true
         }));
 }
