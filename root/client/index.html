@@ -2,11 +2,6 @@
 <html>
 <head>
     <title>Practice Tab</title>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="">
-    <meta name="keywords" content="SEO Keywords">
 
     <!-- Vendor Files -->
     <!-- app:js -->
@@ -39,10 +34,9 @@
 </head>
 <body>
     <div ng-app="app">
-        <header></header>
-        <div ng-controller="homePage as vm" class="container">
-
-
+        <navigation></navigation>
+        <div ng-view>
+            <!-- content resides in here -->
         </div>
         <footer></footer>
     </div>

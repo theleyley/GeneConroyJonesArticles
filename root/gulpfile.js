@@ -5,10 +5,10 @@ var sass = require('gulp-sass');
 var server = require('gulp-server-livereload');
 
 var vendor_files = ['./node_modules/angular/angular.js', './node_modules/angular-route/angular-route.js'];
-
 var lib_files =['./assets/lib/**/*.*', './assets/lib/**/**/.*', './assets/lib/**/**/**.*'];
+var image_files =['./assets/images/**/*.*', './assets/images/**/**/.*', './assets/images/**/**/**.*'];
 
-gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles));
+gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles));
 
 gulp.task('index', gulp.series(clean, copyIndex));
 
@@ -44,6 +44,10 @@ function copyLibFiles(done) {
     return gulp.src(lib_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
 }
 
+function copyImageFiles(done) {
+    return gulp.src(image_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
+}
+
 function sassDatAss(done) {
     return gulp.src('./assets/scss/**/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -51,7 +55,7 @@ function sassDatAss(done) {
 }
 
 function watchAppJs(done) {
-    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles));
+    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles));
 }
 
 function webServer(done) {

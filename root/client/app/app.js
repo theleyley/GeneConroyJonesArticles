@@ -3,26 +3,22 @@
 var ptApp = angular.module('app', ['ngRoute']);
 
 ptApp.controller('homePage', function(){
-
 });
 
 
-ptApp.component('header', {
+ptApp.component('navigation', {
     transclude: true, // path resides called name in the html loader in webpack.js
-    templateUrl:'../templates/header.html',
-    controller: HeaderController,
+    templateUrl:'../templates/navigation.html',
+    controller: navigationController,
     controllerAs: 'vm',
     bindings: {
-        linkName: "@"
     }
 });
 
-HeaderController.$inject = ['$log'];
+navigationController.$inject = [];
 
-function HeaderController($log) {
-    var vm = this;
+function navigationController() {
 
-    $log.info(vm);
 }
 
 
@@ -35,17 +31,17 @@ ptApp.component('footer', {
     }
 });
 
-FooterController.$inject = ['$log'];
+FooterController.$inject = [];
 
-function FooterController($log) {
-    var vm = this;
+function FooterController() {
 
-    $log.info(vm);
 }
 // Configure paths to point to appropriate html templates and specify ui-sref='/someRandomName'
 ptApp.config(function($routeProvider) {
     $routeProvider
-        .when("/", {
-            templateUrl : "index.html"
+        .when('/', {
+            templateUrl: '../templates/homepage.html',
+            controller: 'homePage',
+            controllerAs: 'vm'
         });
 });
