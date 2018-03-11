@@ -6,7 +6,24 @@ ptApp.controller('homePage', function(){
 });
 
 
-ptApp.controller('productsPage', function(){
+ptApp.controller('pricingPage', function($log){
+    var vm = this;
+
+    vm.payload = {
+        name: '',
+        address: '',
+        address2: '',
+        city: '',
+        zipCode: '',
+        creditCardNumber: '',
+        billingZip: '',
+        CvvCode: '',
+        promoCode: ''
+    };
+
+    vm.submitMe = function submitMe(){
+        $log.info(vm.payload);
+    };
 });
 
 ptApp.controller('companyPage', function(){
@@ -43,7 +60,7 @@ ptApp.config(function($routeProvider, $locationProvider) {
         })
         .when('/pricing', {
         templateUrl: '../templates/pricing.html',
-        controller: 'productsPage',
+        controller: 'pricingPage',
         controllerAs: 'vm'
         })
         .when('/company', {

@@ -3,7 +3,7 @@
     <div class="container">
         <h1>Pricing</h1>
         <div class="breadcrumb">
-            <a href="#">Home</a> <i class="fa fa-angle-double-right"></i> <a href="#">Pricing</a>
+            <a href="/">Home</a> <i class="fa fa-angle-double-right"></i> <a href="#">Pricing</a>
 
         </div>
     </div>
@@ -16,11 +16,11 @@
 
         <div class="section-content">
             <div class="row">
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-4 col-md-offset-2 col-sm-6" data-ng-click="vm.isSelected()">
                     <div class="price-box">
-                        <h3>Basic</h3>
+                        <h3>Free</h3>
                         <div class="price-info">
-                            <div class="price"><sup>$</sup>199</div>
+                            <div class="price"><sup>$</sup>0</div>
                             <ul>
                                 <li>Up to 5 pages</li>
                                 <li>1 year hosting</li>
@@ -30,56 +30,17 @@
                                 <li class="disabled">24/7 Support</li>
                             </ul>
                         </div>
-
-                        <a href="#" class="btn btn-default">Get Started</a>
+                        <a class="btn btn-default" data-toggle="modal" data-target="#freeCapture" data-backdrop="static" data-keyboard="false">
+                            Get Started
+                        </a>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6">
-                    <div class="price-box">
-                        <h3>Standard</h3>
-                        <div class="price-info">
-                            <div class="price"><sup>$</sup>499</div>
-
-                            <ul>
-                                <li>Up to 5 pages</li>
-                                <li>1 year hosting</li>
-                                <li>3 months support</li>
-                                <li>SEO</li>
-                                <li class="disabled">Secrity &amp; Backup</li>
-                                <li class="disabled">24/7 Support</li>
-                            </ul>
-                        </div>
-
-                        <a href="#" class="btn btn-default">Get Started</a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="price-box featured">
+                <div class="col-md-4 col-sm-6">
+                    <div class="price-box last">
                         <h3>Premium</h3>
                         <div class="price-info">
-                            <div class="price"><sup>$</sup>799</div>
-
-                            <ul>
-                                <li>Up to 5 pages</li>
-                                <li>1 year hosting</li>
-                                <li>3 months support</li>
-                                <li>SEO</li>
-                                <li>Secrity &amp; Backup</li>
-                                <li class="disabled">24/7 Support</li>
-                            </ul>
-                        </div>
-
-                        <a href="#" class="btn btn-default">Get Started</a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-sm-6">
-                    <div class="price-box last">
-                        <h3>Ultimate</h3>
-                        <div class="price-info">
-                            <div class="price"><sup>$</sup>999</div>
+                            <div class="price"><sup>$</sup>59.99</div>
 
                             <ul>
                                 <li>Up to 5 pages</li>
@@ -91,7 +52,9 @@
                             </ul>
                         </div>
 
-                        <a href="#" class="btn btn-default">Get Started</a>
+                        <a class="btn btn-default" data-toggle="modal" data-target="#paymentCapture" data-backdrop="static" data-keyboard="false">
+                           Get Started
+                        </a>
                     </div>
                 </div>
             </div>
@@ -350,3 +313,105 @@
     </div>
 </section>
 <!-- Footer widgets -->
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="paymentCapture" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Thank you for your money</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="payName">Name</label>
+                        <input type="text" class="form-control" ng-model="vm.payload.name" id="payName" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="payEmail">Email</label>
+                        <input type="email" class="form-control" id="payEmail" ng-model="vm.payload.email" placeholder="Enter Email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payAddress">Street Address</label>
+                        <input type="text" class="form-control" id="payAddress" ng-model="vm.payload.address" placeholder="Enter Street">
+                    </div>
+                    <div class="form-group">
+                        <label for="payAddress2">Street Address 2</label>
+                        <input type="text" class="form-control" id="payAddress2" ng-model="vm.payload.address2" placeholder="Enter Suite Number">
+                    </div>
+                    <div class="form-group">
+                        <label for="payCity">City</label>
+                        <input type="text" class="form-control" ng-model="vm.payload.city" id="payCity" placeholder="Enter City">
+                    </div>
+                    <div class="form-group">
+                        <label for="payZip">Zip Code</label>
+                        <input type="text" class="form-control" id="payZip" ng-model="vm.payload.zipCode" placeholder="Enter Zip Code">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="creditCard">Credit Card Number</label>
+                        <input type="text" class="form-control" id="creditCard" ng-model="vm.payload.creditCardNumber" placeholder="Enter Credit Card Number">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="payBillingZip">Billing Zip</label>
+                        <input type="text" class="form-control" id="payBillingZip" ng-model="vm.payload.billingZip" placeholder="Enter Billing Zip">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="payCvvCode">CVV Code</label>
+                        <input type="text" class="form-control" id="payCvvCode" ng-model="vm.payload.CvvCode" placeholder="Enter CVV Code">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="promoCode">Promo Code</label>
+                        <input type="text" class="form-control" id="promoCode" ng-model="vm.payload.promoCode" placeholder="Enter Promo Code">
+                    </div>
+                    <!--<div class="checkbox">-->
+                    <!--<label>-->
+                    <!--<input type="checkbox"> Check me out-->
+                    <!--</label>-->
+                    <!--</div>-->
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.submitMe()">Save changes</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="freeCapture" tabindex="-1" role="dialog" aria-labelledby="anotherModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="anotherModalLabel">Thanks for nothing</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="freeName">Name</label>
+                        <input type="text" class="form-control" ng-model="vm.payload.name" id="freeName" placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="FreeEmail">Email</label>
+                        <input type="email" class="form-control" id="FreeEmail" ng-model="vm.payload.email" placeholder="Enter Email">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">data-dismiss="modal
+                <a type="button" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.submitMe()">Save changes</a>
+            </div>
+        </div>
+    </div>
+</div>
