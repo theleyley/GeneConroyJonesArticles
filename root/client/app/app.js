@@ -9,6 +9,12 @@ ptApp.controller('homePage', function(){
 ptApp.controller('productsPage', function(){
 });
 
+ptApp.controller('companyPage', function(){
+});
+
+ptApp.controller('contactPage', function(){
+});
+
 
 ptApp.component('navigation', {
     transclude: true, // path resides called name in the html loader in webpack.js
@@ -47,9 +53,9 @@ ptApp.component('ptLogo',{
     controller: function($scope, $element){
         var vm = this;
         if(vm.type) {
-            $element.append('<a class="navbar-brand brand" href="/">Practice<span class="split">Tab</span></a>');
+            $element.append('<span class="brand">practice<span class="split">tab</span></span>');
         } else {
-            $element.append('<span class="brand" style="color: RED">practice<span class="split">tab</span></span>');
+            $element.append('<a class="navbar-brand brand" href="/">Practice<span class="split">Tab</span></a>');
         }
     },
     controllerAs: 'vm',
@@ -66,10 +72,20 @@ ptApp.config(function($routeProvider, $locationProvider) {
             controller: 'homePage',
             controllerAs: 'vm'
         })
-        .when('/products', {
-        templateUrl: '../templates/products.html',
+        .when('/pricing', {
+        templateUrl: '../templates/pricing.html',
         controller: 'productsPage',
         controllerAs: 'vm'
-    });
+        })
+        .when('/company', {
+            templateUrl: '../templates/company.html',
+            controller: 'companyPage',
+            controllerAs: 'vm'
+        })
+        .when('/contact', {
+            templateUrl: '../templates/contact.html',
+            controller: 'contactPage',
+            controllerAs: 'vm'
+        });
     $locationProvider.html5Mode(true);
 });

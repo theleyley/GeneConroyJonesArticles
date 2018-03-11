@@ -1,0 +1,33 @@
+$font-family-logo: '';
+$brand-primary: #E74C3C;
+$brand-secondary: #D7DADB;
+$white: #FFF;
+$font-family-logo: 'Comfortaa', serif;
+
+
+
+.brand {
+  font-family: $font-family-logo;
+  font-weight: 300;
+  text-transform: lowercase;
+  padding-top: 20px;
+  color: $brand-primary;
+  &.white {
+    color: $white;
+
+    .split {
+      color: $white;
+    }
+  }
+  .split {
+    font-weight: 700;
+    color: $brand-secondary;
+  }
+  &.navbar-brand {
+    font-size: 2em;
+    color: $white;
+    .split {
+      color: $white;
+    }
+  }
+}
