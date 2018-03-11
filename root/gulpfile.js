@@ -7,8 +7,9 @@ var server = require('gulp-webserver');
 var vendor_files = ['./node_modules/angular/angular.js', './node_modules/angular-route/angular-route.js'];
 var lib_files =['./assets/lib/**/*.*', './assets/lib/**/**/.*', './assets/lib/**/**/**.*'];
 var image_files =['./assets/images/**/*.*', './assets/images/**/**/.*', './assets/images/**/**/**.*'];
+var theme_js_files =['./assets/js/*.js'];
 
-gulp.task('default', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles));
+gulp.task('default', gulp.series(clean, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles, copyThemeJsFiles, copyIndex));
 
 gulp.task('index', gulp.series(clean, copyIndex));
 
@@ -32,6 +33,7 @@ function copyIndex(done) {
 function copyAppJs(done) {
     return gulp.src('./client/**/*.js').pipe(gulp.dest('./dist', {overwrite: true}));
 }
+
 function copyAppTemplates(done) {
     return gulp.src('./client/app/templates/*.html').pipe(gulp.dest('./dist/templates', {overwrite: true}));
 }
@@ -44,6 +46,12 @@ function copyLibFiles(done) {
     return gulp.src(lib_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
 }
 
+
+function copyThemeJsFiles(done) {
+    return gulp.src(theme_js_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
+}
+
+
 function copyImageFiles(done) {
     return gulp.src(image_files, {base: './assets'}).pipe(gulp.dest('./dist/assets', {overwrite: true}));
 }
@@ -55,7 +63,7 @@ function sassDatAss(done) {
 }
 
 function watchAppJs(done) {
-    return gulp.watch('./client/**/*.*', gulp.series(clean, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles, copyIndex));
+    return gulp.watch('./client/**/*.*', gulp.series(clean, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles, copyThemeJsFiles, copyIndex));
 }
 
 function webServer(done) {

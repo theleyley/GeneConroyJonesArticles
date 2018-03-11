@@ -1224,16 +1224,15 @@ $(document).ready(function () {
 	03. FixedTop Navigation
  ------------------------------------------*/
 
-(function(){
-
-	var $nav = $('#fixedTopNav');
+$(document).ready(function(){
+    var $nav = $('#fixedTopNav');
 
     function navbarAnimation() {
         if ($(window).scrollTop() > 0) {
-        	$nav.addClass('navbar-solid');
-        	return;
+            $nav.addClass('navbar-solid');
+            return;
         }
-        
+
         $nav.removeClass('navbar-solid');
         $(".navbar-nav > li > a").blur();
 
@@ -1243,10 +1242,9 @@ $(document).ready(function () {
     navbarAnimation();
 
     $(window).scroll(function() {
-		navbarAnimation();
-	});
-
-})();
+        navbarAnimation();
+    });
+});
 
 
 
