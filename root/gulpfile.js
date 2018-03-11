@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var del = require('del');
 var inject = require('gulp-inject');
 var sass = require('gulp-sass');
-var server = require('gulp-server-livereload');
+var server = require('gulp-webserver');
 
 var vendor_files = ['./node_modules/angular/angular.js', './node_modules/angular-route/angular-route.js'];
 var lib_files =['./assets/lib/**/*.*', './assets/lib/**/**/.*', './assets/lib/**/**/**.*'];
@@ -33,7 +33,7 @@ function copyAppJs(done) {
     return gulp.src('./client/**/*.js').pipe(gulp.dest('./dist', {overwrite: true}));
 }
 function copyAppTemplates(done) {
-    return gulp.src('./client/app/templates/*.html').pipe(gulp.dest('./dist/templates'));
+    return gulp.src('./client/app/templates/*.html').pipe(gulp.dest('./dist/templates', {overwrite: true}));
 }
 
 function copyVendor(done) {
@@ -55,7 +55,7 @@ function sassDatAss(done) {
 }
 
 function watchAppJs(done) {
-    return gulp.watch('./client/**/*.*', gulp.series(clean, copyIndex, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles));
+    return gulp.watch('./client/**/*.*', gulp.series(clean, sassDatAss, copyAppJs, copyAppTemplates, copyVendor, copyLibFiles, copyImageFiles, copyIndex));
 }
 
 function webServer(done) {
@@ -64,7 +64,7 @@ function webServer(done) {
             host: 'localhost',
             defaultFile: 'index.html',
             port: '8000',
-            livereload: false,
+            livereload: true,
             open: true
         }));
 }
