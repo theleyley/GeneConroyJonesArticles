@@ -22,12 +22,7 @@
                         <div class="price-info">
                             <div class="price"><sup>$</sup>0</div>
                             <ul>
-                                <li>Up to 5 pages</li>
-                                <li>1 year hosting</li>
-                                <li>3 months support</li>
-                                <li class="disabled">SEO</li>
-                                <li class="disabled">Secrity &amp; Backup</li>
-                                <li class="disabled">24/7 Support</li>
+                                <li data-ng-repeat="item in vm.options" data-ng-class="{'no-soup-fo-you': item.option === 'prem'}">{{ item.label }}</li>
                             </ul>
                         </div>
                         <a class="btn btn-default" data-toggle="modal" data-target="#freeCapture" data-backdrop="static" data-keyboard="false">
@@ -43,12 +38,7 @@
                             <div class="price"><sup>$</sup>59.99</div>
 
                             <ul>
-                                <li>Up to 5 pages</li>
-                                <li>1 year hosting</li>
-                                <li>3 months support</li>
-                                <li>SEO</li>
-                                <li>Secrity &amp; Backup</li>
-                                <li>24/7 Support</li>
+                                <li data-ng-repeat="item in vm.options">{{ item.label }}</li>
                             </ul>
                         </div>
 
@@ -56,6 +46,12 @@
                            Get Started
                         </a>
                     </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <span class="small">*$119 initial setup fee for Premium Acount holders. This one-time fee includes data transfer, Online health store, account and EFT setup.</span>
+                    <span class="small">**Mass email marketing includes 5,000 emails per month</span>
+                    <span class="small">*** 5% Discount on Bi-Annual Plan - Prepaid (Only If this option can be implemented in the template)</span>
+                    <span class="small">****10% Discount on Annual Plan - Prepaid (Only If this option can be implemented in the template)</span>
                 </div>
             </div>
         </div>

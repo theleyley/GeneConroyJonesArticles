@@ -6,7 +6,7 @@
     transition: all 0.4s ease;
 
     .navbar-brand {
-        font-family: 'Raleway', sans-serif;
+        font-family: $font-family-header;
         height: auto;
         padding: 22px 15px 10px 15px;
         -moz-transition: all 0.4s ease;

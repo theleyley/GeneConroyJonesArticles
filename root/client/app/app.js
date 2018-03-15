@@ -21,6 +21,51 @@ ptApp.controller('pricingPage', function($log){
         promoCode: ''
     };
 
+
+
+    vm.options = [
+        {
+            label: "Public Practitioner Profile",
+            option: 'free'
+        },
+        {
+            label: "Practitioner Search",
+            option: 'free'
+        },
+        {
+            label: "Blog",
+            option: 'free'
+        },
+        {
+            label: "Practitioner Referral Program",
+            option: 'free'
+        },
+        {
+            label: "Online Health Store",
+            option: 'prem'
+        },
+        {
+            label: "Social media Management",
+            option: 'prem'
+        },
+        {
+            label: "Contact Management",
+            option: 'prem'
+        },
+        {
+            label: "Email Marketing",
+            option: 'prem'
+        },
+        {
+            label: "Marketing Tools",
+            option: 'prem'
+        },
+        {
+            label: "Secure Contact Portal",
+            option: 'prem'
+        }
+    ];
+
     vm.submitMe = function submitMe(){
         $log.info(vm.payload);
     };

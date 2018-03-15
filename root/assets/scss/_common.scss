@@ -1,12 +1,69 @@
-$bg-base-color: #ffffff;
-$bg-base-color-dark: #2c2c2c;
-$content-color: #000000;
-$content-color-on-dark-bg: #ffffff;
-
 html, body{
     position: relative;
     overflow-x: hidden;
 }
+
+a {
+    color: $link;
+}
+
+/*-----------------------------------------
+    Logo
+------------------------------------------*/
+
+.brand {
+    font-family: $font-family-logo;
+    font-weight: 300;
+    text-transform: lowercase;
+    padding-top: 20px;
+    color: $brand-primary;
+    &.white {
+        color: $white;
+
+        .split {
+            color: $white;
+        }
+    }
+    .split {
+        font-weight: 700;
+        color: $brand-secondary;
+    }
+    &.navbar-brand {
+        font-size: 2em;
+        color: $white;
+        .split {
+            color: $white;
+        }
+    }
+}
+
+.background-gray {
+    background: $gray-200;
+}
+
+.background-gray-dark {
+    background: $gray-700;
+    color: $white;
+}
+
+.background-blue {
+    background: $brand-blue;
+    color: $white;
+}
+
+.background-brand {
+    background: $brand-primary;
+    color: $white;
+}
+
+.text-blue {
+    color: $brand-blue;
+}
+
+.text-brand {
+    color: $brand-primary;
+}
+
 
 /*-----------------------------------------
     Page Loader
