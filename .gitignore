@@ -1,4 +1,4 @@
 .idea
-node_modules
+root/node_modules
 *.iml
-dist
+root/dist
